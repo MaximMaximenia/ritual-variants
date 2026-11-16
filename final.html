@@ -105,13 +105,13 @@ p{margin:0 0 13px}
 .hero .bigphone .dim{color:var(--ink)}
 .hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center}
 .heroin{max-width:640px;position:relative;z-index:1}
-.point{display:inline-flex;align-items:center;gap:6px;pointer-events:none;white-space:nowrap;
-  margin-left:-4px;animation:blink 2.8s ease-in-out infinite}
-.point svg{flex:none}
-.point b{font-size:14px;font-weight:700;color:var(--acc);letter-spacing:-.01em}
-@keyframes blink{0%{opacity:0;transform:translateX(8px)}
-  20%,60%{opacity:1;transform:translateX(0)}
-  85%,100%{opacity:0;transform:translateX(8px)}}
+.hero .row .btn{min-width:232px}
+.point{display:inline-flex;align-items:center;color:var(--ink);pointer-events:none;
+  margin-left:2px;animation:blink 2.6s ease-in-out infinite}
+.point svg{flex:none;display:block}
+@keyframes blink{0%{opacity:0;transform:translateX(10px)}
+  22%,58%{opacity:1;transform:translateX(0)}
+  88%,100%{opacity:0;transform:translateX(10px)}}
 .herolead{font-size:19px;color:var(--muted);max-width:52ch;margin:0}
 
 /* факты */
@@ -155,10 +155,10 @@ p{margin:0 0 13px}
 .rev figcaption{font-size:13.5px;font-weight:700;color:var(--acc)}
 
 /* стрелка-разделитель */
-.down{display:block;margin:0 auto;width:34px;height:34px;color:var(--acc);opacity:.55}
+.down{display:block;margin:clamp(30px,4vw,44px) auto calc(-1 * clamp(30px,4vw,44px));width:32px;height:32px;color:var(--acc);opacity:.5;position:relative;z-index:2}
 .down svg{display:block;width:100%;height:100%;animation:drop 2.4s ease-in-out infinite}
 @keyframes drop{0%,100%{transform:translateY(-3px);opacity:.55}50%{transform:translateY(4px);opacity:1}}
-.revwall .down{color:#fff;opacity:.75}
+.revwall .down{color:#fff;opacity:.8}
 
 /* стена отзывов */
 .revwall{background:var(--acc);color:#fff;border-block:2px solid var(--acc)}
@@ -166,7 +166,11 @@ p{margin:0 0 13px}
 .revwall h2{color:#fff}
 .revlead{color:rgba(255,255,255,.8);margin:0 0 28px}
 .revwall .rev{border:none;gap:16px;display:grid}
-.revwall .rev figure{background:#fff;border:none;padding:26px 28px}
+.revwall .rev figure{background:#fff;border:none;padding:26px 28px;
+  box-shadow:0 1px 0 rgba(0,0,0,.08),0 10px 22px -8px rgba(0,0,0,.34),0 22px 44px -22px rgba(0,0,0,.4);
+  transform:translateY(-2px);transition:transform .25s ease,box-shadow .25s ease}
+.revwall .rev figure:hover{transform:translateY(-6px);
+  box-shadow:0 1px 0 rgba(0,0,0,.08),0 16px 30px -10px rgba(0,0,0,.38),0 30px 58px -26px rgba(0,0,0,.45)}
 .revwall blockquote{color:var(--ink)}
 .revwall figcaption{color:var(--acc)}
 
@@ -241,6 +245,8 @@ footer a{color:var(--muted)}
   .hero .row{margin-top:20px}
 }
 @media(max-width:620px){
+  .hero .row{gap:10px}
+  .hero .row .btn{min-width:0;flex:1 1 100%}
   .point{display:none}
   .frow{grid-template-columns:1fr 1fr}
   .frow>div{border-bottom:1px solid var(--line)}
@@ -250,7 +256,14 @@ footer a{color:var(--muted)}
   .topph b{font-size:20px}
   .topph i{font-size:10px}
 }
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+/* появление блоков */
+.rise{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.rise.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+  .rise{opacity:1;transform:none}
+}
 </style>
 </head>
 <body>
@@ -273,11 +286,10 @@ footer a{color:var(--muted)}
     <p class="herolead">Морг, документы, транспорт, кладбище и прощание берём на себя. Звоните в любое время суток — выезд агента бесплатный.</p>
     <div class="row">
       <a class="btn btn--red" href="tel:+375333275986" data-call>Позвонить сейчас</a>
-      <span class="point" aria-hidden="true">
-        <svg viewBox="0 0 54 26" width="52" height="25"><path d="M50 6C38 3 22 7 13 15" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 5"/><path d="M21 17l-8-2 2-8" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <b>звоните сюда</b>
-      </span>
       <a class="btn" href="#zayavka">Перезвоните мне</a>
+      <span class="point" aria-hidden="true">
+        <svg viewBox="0 0 56 24" width="54" height="23"><path d="M53 4C41 2 24 6 14 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M22 15l-8-2 1-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
     </div>
   </div>
   </div>
@@ -285,7 +297,7 @@ footer a{color:var(--muted)}
 
 <section class="facts"><div class="wrap"><div class="frow">
   <div><b>40</b><i>минут до приезда агента</i></div>
-  <div><b>482</b><i>семьи доверили нам похороны за год</i></div>
+  <div><b data-count="482">0</b><i>семьи доверили нам похороны за год</i></div>
   <div><b>3&nbsp;099</b><i>BYN пособие, часто хватает на всё</i></div>
   <div><b>0</b><i>рублей предоплаты</i></div>
 </div></div></section>
@@ -304,7 +316,7 @@ footer a{color:var(--muted)}
       <span class="lab">Берут чаще всего</span>
       <h3>С выбором</h3>
       <b class="price">от 4 000 <span>BYN</span></b>
-      <ul><li>Всё из первого</li><li>Гроб и венки на выбор</li><li>Живые цветы</li><li>Автобус и зал прощания</li></ul>
+      <ul><li>Всё из первого</li><li>Гроб и венки на выбор</li><li>Живые цветы и ленты</li><li>Сопровождение агента на всех этапах</li></ul>
     </article>
     <article>
       <h3>Полный</h3>
@@ -445,6 +457,38 @@ footer a{color:var(--muted)}
       dock.classList.toggle('on',show);
       document.body.classList.toggle('docked',show);
     },{threshold:0}).observe(hero);
+  }
+
+  // появление блоков
+  var rm=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!rm&&'IntersectionObserver' in window){
+    var items=document.querySelectorAll('section > .wrap > *:not(.down)');
+    items.forEach(function(el){el.classList.add('rise');});
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);} });
+    },{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+    items.forEach(function(el){io.observe(el);});
+    document.querySelectorAll('.hero .wrap > *').forEach(function(el){el.classList.remove('rise');});
+  }
+
+  // счётчик
+  var cnt=document.querySelector('[data-count]');
+  if(cnt){
+    var target=parseInt(cnt.dataset.count,10);
+    if(rm){ cnt.textContent=target; }
+    else{
+      new IntersectionObserver(function(e,obs){
+        if(!e[0].isIntersecting) return;
+        obs.disconnect();
+        var t0=null, dur=1100;
+        requestAnimationFrame(function step(ts){
+          if(!t0) t0=ts;
+          var k=Math.min((ts-t0)/dur,1);
+          cnt.textContent=Math.round(target*(1-Math.pow(1-k,3)));
+          if(k<1) requestAnimationFrame(step);
+        });
+      },{threshold:.4}).observe(cnt);
+    }
   }
 
   var form=document.getElementById('lead');
