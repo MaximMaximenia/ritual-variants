@@ -96,12 +96,12 @@ p{margin:0 0 13px}
   border:2px solid var(--line2);background:var(--bg);color:var(--ink);
   font:inherit;font-size:17px;font-weight:700;letter-spacing:-.01em;text-decoration:none;transition:.15s;
   position:relative;overflow:hidden}
-.btn::after{content:"";position:absolute;top:0;left:-70%;width:34%;height:100%;
-  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.1) 32%,rgba(255,255,255,.8) 50%,rgba(255,255,255,.1) 68%,transparent 100%);
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:22%;height:100%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.04) 38%,rgba(255,255,255,.88) 50%,rgba(255,255,255,.04) 62%,transparent 100%);
   transform:skewX(-18deg);pointer-events:none}
-.btn--red::after{animation:shine 6s linear infinite}
-.btn:hover::after{animation:shine 6s linear infinite}
-@keyframes shine{0%{left:-70%}77%{left:190%}100%{left:190%}}
+.btn--red::after{animation:shine 4.4s linear infinite}
+.btn:hover::after{animation:shine 4.4s linear infinite}
+@keyframes shine{0%{left:-70%}68%{left:190%}100%{left:190%}}
 .btn:hover{background:var(--ink);color:#fff}
 .btn--red{background:var(--acc);border-color:var(--acc);color:#fff}
 .btn--red:hover{background:var(--accd);border-color:var(--accd);color:#fff}
@@ -241,9 +241,9 @@ footer a{color:var(--muted)}
   font-weight:700;font-size:16px;text-decoration:none;color:var(--ink)}
 .dock a.dock--call{background:var(--acc);color:#fff;position:relative;overflow:hidden}
 .dock--call span{position:relative;z-index:1}
-.dock--call::after{content:"";position:absolute;top:0;left:-70%;width:32%;height:100%;
-  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.12) 32%,rgba(255,255,255,.85) 50%,rgba(255,255,255,.12) 68%,transparent 100%);
-  transform:skewX(-18deg);animation:shine 6s linear infinite}
+.dock--call::after{content:"";position:absolute;top:0;left:-70%;width:20%;height:100%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.05) 38%,rgba(255,255,255,.92) 50%,rgba(255,255,255,.05) 62%,transparent 100%);
+  transform:skewX(-18deg);animation:shine 4.4s linear infinite}
 
 @media(max-width:1000px){
   .revwall .rev{grid-template-columns:repeat(2,1fr);gap:18px}
