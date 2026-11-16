@@ -12,6 +12,25 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%238A1C1C'/%3E%3Cpath d='M16 6v20M8 13h16' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3C/svg%3E">
 
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KW4S4NT5');</script>
+
+<!-- Microsoft Clarity -->
+<script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","zavpw9rpcz");</script>
+
+<!-- Yandex.Metrika -->
+<script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+ym(114140956,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114140956" style="position:absolute;left:-9999px" alt=""></div></noscript>
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18262946704"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -77,12 +96,12 @@ p{margin:0 0 13px}
   border:2px solid var(--line2);background:var(--bg);color:var(--ink);
   font:inherit;font-size:17px;font-weight:700;letter-spacing:-.01em;text-decoration:none;transition:.15s;
   position:relative;overflow:hidden}
-.btn::after{content:"";position:absolute;top:0;left:-140%;width:70%;height:100%;
-  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.18) 28%,rgba(255,255,255,.72) 50%,rgba(255,255,255,.18) 72%,transparent 100%);
+.btn::after{content:"";position:absolute;top:0;left:-70%;width:34%;height:100%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.1) 32%,rgba(255,255,255,.8) 50%,rgba(255,255,255,.1) 68%,transparent 100%);
   transform:skewX(-18deg);pointer-events:none}
-.btn--red::after{animation:shine 7s linear infinite}
-.btn:hover::after{animation:shine 7s linear infinite}
-@keyframes shine{0%{left:-140%}43%{left:160%}100%{left:160%}}
+.btn--red::after{animation:shine 6s linear infinite}
+.btn:hover::after{animation:shine 6s linear infinite}
+@keyframes shine{0%{left:-70%}77%{left:190%}100%{left:190%}}
 .btn:hover{background:var(--ink);color:#fff}
 .btn--red{background:var(--acc);border-color:var(--acc);color:#fff}
 .btn--red:hover{background:var(--accd);border-color:var(--accd);color:#fff}
@@ -165,9 +184,8 @@ p{margin:0 0 13px}
 .revwall .tag{color:rgba(255,255,255,.72)}
 .revwall h2{color:#fff}
 .revlead{color:rgba(255,255,255,.8);margin:0 0 28px}
-.revwall .rev{border:none;display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.revwall .rev figure{grid-column:span 2;border-right:none}
-.revwall .rev figure:nth-child(4),.revwall .rev figure:nth-child(5){grid-column:span 3}
+.revwall .rev{border:none;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.revwall .rev figure{border-right:none}
 .revwall .rev figure{background:#fff;border:none;padding:26px 28px;
   box-shadow:0 2px 0 rgba(0,0,0,.1),0 12px 24px -10px rgba(0,0,0,.36),0 26px 50px -24px rgba(0,0,0,.42)}
 .revwall blockquote{color:var(--ink)}
@@ -223,18 +241,15 @@ footer a{color:var(--muted)}
   font-weight:700;font-size:16px;text-decoration:none;color:var(--ink)}
 .dock a.dock--call{background:var(--acc);color:#fff;position:relative;overflow:hidden}
 .dock--call span{position:relative;z-index:1}
-.dock--call::after{content:"";position:absolute;top:0;left:-140%;width:65%;height:100%;
-  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.2) 28%,rgba(255,255,255,.78) 50%,rgba(255,255,255,.2) 72%,transparent 100%);
-  transform:skewX(-18deg);animation:shine 7s linear infinite}
+.dock--call::after{content:"";position:absolute;top:0;left:-70%;width:32%;height:100%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.12) 32%,rgba(255,255,255,.85) 50%,rgba(255,255,255,.12) 68%,transparent 100%);
+  transform:skewX(-18deg);animation:shine 6s linear infinite}
 
 @media(max-width:1000px){
   .revwall .rev{grid-template-columns:repeat(2,1fr);gap:18px}
-  .revwall .rev figure,.revwall .rev figure:nth-child(4),.revwall .rev figure:nth-child(5){grid-column:span 1}
-  .revwall .rev figure:nth-child(5){grid-column:span 2}
 }
 @media(max-width:620px){
   .revwall .rev{grid-template-columns:1fr}
-  .revwall .rev figure:nth-child(5){grid-column:span 1}
 }
 @media(max-width:900px){
   .packs{grid-template-columns:1fr}
@@ -275,6 +290,7 @@ footer a{color:var(--muted)}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KW4S4NT5" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="top"><div class="wrap">
   <a class="logo" href="#top"><span class="m"></span><span><b>Светлая память</b><i>ритуальная служба · Минск</i></span></a>
@@ -346,6 +362,7 @@ footer a{color:var(--muted)}
     <figure><blockquote>«Справки, бумажки — для меня тёмный лес. Менеджер сам собрал все документы и подал куда надо. Я только подписала.»</blockquote><figcaption>Татьяна</figcaption></figure>
     <figure><blockquote>«Живу в Москве, хоронили в области. Всё организовали дистанционно, отчёт по каждому этапу. Ни одной осечки.»</blockquote><figcaption>Игорь</figcaption></figure>
     <figure><blockquote>«Стеснялась спросить про дешёвый гроб. Здесь без осуждения подобрали бюджетный вариант, всё достойно.»</blockquote><figcaption>Мария</figcaption></figure>
+    <figure><blockquote>«Столкнулась с безразличием в другой фирме. Здесь — человеческое отношение. Выслушали, дали время выбрать. Спасибо за такт.»</blockquote><figcaption>Светлана</figcaption></figure>
   </div>
   <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
