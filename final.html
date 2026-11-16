@@ -105,15 +105,13 @@ p{margin:0 0 13px}
 .hero .bigphone .dim{color:var(--ink)}
 .hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center}
 .heroin{max-width:640px;position:relative;z-index:1}
-.cta1{position:relative;display:inline-flex}
-.point{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);
-  display:flex;align-items:center;gap:5px;pointer-events:none;white-space:nowrap;
-  animation:blink 2.6s ease-in-out infinite}
+.point{display:inline-flex;align-items:center;gap:6px;pointer-events:none;white-space:nowrap;
+  margin-left:-4px;animation:blink 2.8s ease-in-out infinite}
 .point svg{flex:none}
-.point b{font-size:13.5px;font-weight:700;color:var(--acc);letter-spacing:-.01em}
-@keyframes blink{0%,100%{opacity:0;transform:translateY(-50%) translateX(6px)}
-  18%,62%{opacity:1;transform:translateY(-50%) translateX(0)}
-  80%{opacity:0;transform:translateY(-50%) translateX(6px)}}
+.point b{font-size:14px;font-weight:700;color:var(--acc);letter-spacing:-.01em}
+@keyframes blink{0%{opacity:0;transform:translateX(8px)}
+  20%,60%{opacity:1;transform:translateX(0)}
+  85%,100%{opacity:0;transform:translateX(8px)}}
 .herolead{font-size:19px;color:var(--muted);max-width:52ch;margin:0}
 
 /* факты */
@@ -156,15 +154,21 @@ p{margin:0 0 13px}
 .rev blockquote{margin:0 0 12px;font-size:16px;line-height:1.55}
 .rev figcaption{font-size:13.5px;font-weight:700;color:var(--acc)}
 
+/* стрелка-разделитель */
+.down{display:block;margin:0 auto;width:34px;height:34px;color:var(--acc);opacity:.55}
+.down svg{display:block;width:100%;height:100%;animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{0%,100%{transform:translateY(-3px);opacity:.55}50%{transform:translateY(4px);opacity:1}}
+.revwall .down{color:#fff;opacity:.75}
+
 /* стена отзывов */
 .revwall{background:var(--acc);color:#fff;border-block:2px solid var(--acc)}
 .revwall .tag{color:rgba(255,255,255,.72)}
 .revwall h2{color:#fff}
 .revlead{color:rgba(255,255,255,.8);margin:0 0 28px}
-.revwall .rev{border-color:rgba(255,255,255,.32)}
-.revwall .rev figure{border-right-color:rgba(255,255,255,.22)}
-.revwall blockquote{color:#fff}
-.revwall figcaption{color:#F3C9C9}
+.revwall .rev{border:none;gap:16px;display:grid}
+.revwall .rev figure{background:#fff;border:none;padding:26px 28px}
+.revwall blockquote{color:var(--ink)}
+.revwall figcaption{color:var(--acc)}
 
 /* faq */
 .faq{max-width:76ch;border-top:2px solid var(--line2)}
@@ -268,12 +272,10 @@ footer a{color:var(--muted)}
     <h1>Ритуальные услуги в Минске.<br>Агент приедет <em>через 40 минут</em></h1>
     <p class="herolead">Морг, документы, транспорт, кладбище и прощание берём на себя. Звоните в любое время суток — выезд агента бесплатный.</p>
     <div class="row">
-      <span class="cta1">
-        <a class="btn btn--red" href="tel:+375333275986" data-call>Позвонить сейчас</a>
-        <span class="point" aria-hidden="true">
-          <svg viewBox="0 0 54 30" width="50" height="28"><path d="M50 8C38 4 22 8 12 18" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 6"/><path d="M20 20l-8-2 2-8" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <b>звоните сюда</b>
-        </span>
+      <a class="btn btn--red" href="tel:+375333275986" data-call>Позвонить сейчас</a>
+      <span class="point" aria-hidden="true">
+        <svg viewBox="0 0 54 26" width="52" height="25"><path d="M50 6C38 3 22 7 13 15" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 5"/><path d="M21 17l-8-2 2-8" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <b>звоните сюда</b>
       </span>
       <a class="btn" href="#zayavka">Перезвоните мне</a>
     </div>
@@ -283,7 +285,7 @@ footer a{color:var(--muted)}
 
 <section class="facts"><div class="wrap"><div class="frow">
   <div><b>40</b><i>минут до приезда агента</i></div>
-  <div><b>24/7</b><i>без выходных и праздников</i></div>
+  <div><b>482</b><i>семьи доверили нам похороны за год</i></div>
   <div><b>3&nbsp;099</b><i>BYN пособие, часто хватает на всё</i></div>
   <div><b>0</b><i>рублей предоплаты</i></div>
 </div></div></section>
@@ -311,6 +313,7 @@ footer a{color:var(--muted)}
     </article>
   </div>
   <p class="small" style="margin-top:18px">Точную сумму агент называет до начала работ и вписывает в договор. После подписания она не меняется.</p>
+<div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
 
 <section class="revwall"><div class="wrap">
@@ -326,6 +329,7 @@ footer a{color:var(--muted)}
     <figure><blockquote>«Живу в Москве, хоронили в области. Всё организовали дистанционно, отчёт по каждому этапу. Ни одной осечки.»</blockquote><figcaption>Игорь</figcaption></figure>
     <figure><blockquote>«Стеснялась спросить про дешёвый гроб. Здесь без осуждения подобрали бюджетный вариант, всё достойно.»</blockquote><figcaption>Мария</figcaption></figure>
   </div>
+  <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
@@ -338,6 +342,7 @@ footer a{color:var(--muted)}
     <div><b>03</b><h3>Два паспорта</h3><p>Умершего и ваш. Этого достаточно, чтобы начать.</p></div>
     <div><b>04</b><h3>Позвоните нам</h3><p>Агент приедет домой или в морг и дальше всё сделает сам.</p></div>
   </div>
+  <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
 
 <section class="band" style="background:var(--paper);border-block:2px solid var(--line2)"><div class="wrap">
@@ -352,6 +357,7 @@ footer a{color:var(--muted)}
     <article><h3>Прощание</h3><p>Зал, отпевание любой конфессии или светская церемония.</p></article>
     <article><h3>Всё для похорон</h3><p>Гроб, венки, кресты, цветы, одежда. Привозим сами.</p></article>
   </div>
+  <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
 
 
