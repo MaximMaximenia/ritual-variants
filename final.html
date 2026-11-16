@@ -77,12 +77,12 @@ p{margin:0 0 13px}
   border:2px solid var(--line2);background:var(--bg);color:var(--ink);
   font:inherit;font-size:17px;font-weight:700;letter-spacing:-.01em;text-decoration:none;transition:.15s;
   position:relative;overflow:hidden}
-.btn::after,.topbtn::after{content:"";position:absolute;top:0;left:-130%;width:55%;height:100%;
-  background:linear-gradient(100deg,transparent,rgba(255,255,255,.42),transparent);
-  transform:skewX(-20deg);pointer-events:none}
-.btn--red::after{animation:shine 4.5s ease-in-out infinite}
-.btn:hover::after{animation:shine .7s ease-in-out}
-@keyframes shine{0%{left:-130%}22%{left:150%}100%{left:150%}}
+.btn::after{content:"";position:absolute;top:0;left:-140%;width:70%;height:100%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.18) 28%,rgba(255,255,255,.72) 50%,rgba(255,255,255,.18) 72%,transparent 100%);
+  transform:skewX(-18deg);pointer-events:none}
+.btn--red::after{animation:shine 13s ease-in-out infinite}
+.btn:hover::after{animation:shine 1.6s ease-in-out}
+@keyframes shine{0%{left:-140%}14%{left:160%}100%{left:160%}}
 .btn:hover{background:var(--ink);color:#fff}
 .btn--red{background:var(--acc);border-color:var(--acc);color:#fff}
 .btn--red:hover{background:var(--accd);border-color:var(--accd);color:#fff}
@@ -165,12 +165,9 @@ p{margin:0 0 13px}
 .revwall .tag{color:rgba(255,255,255,.72)}
 .revwall h2{color:#fff}
 .revlead{color:rgba(255,255,255,.8);margin:0 0 28px}
-.revwall .rev{border:none;gap:16px;display:grid}
+.revwall .rev{border:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(282px,1fr));gap:20px}
 .revwall .rev figure{background:#fff;border:none;padding:26px 28px;
-  box-shadow:0 1px 0 rgba(0,0,0,.08),0 10px 22px -8px rgba(0,0,0,.34),0 22px 44px -22px rgba(0,0,0,.4);
-  transform:translateY(-2px);transition:transform .25s ease,box-shadow .25s ease}
-.revwall .rev figure:hover{transform:translateY(-6px);
-  box-shadow:0 1px 0 rgba(0,0,0,.08),0 16px 30px -10px rgba(0,0,0,.38),0 30px 58px -26px rgba(0,0,0,.45)}
+  box-shadow:0 2px 0 rgba(0,0,0,.1),0 12px 24px -10px rgba(0,0,0,.36),0 26px 50px -24px rgba(0,0,0,.42)}
 .revwall blockquote{color:var(--ink)}
 .revwall figcaption{color:var(--acc)}
 
@@ -224,9 +221,9 @@ footer a{color:var(--muted)}
   font-weight:700;font-size:16px;text-decoration:none;color:var(--ink)}
 .dock a.dock--call{background:var(--acc);color:#fff;position:relative;overflow:hidden}
 .dock--call span{position:relative;z-index:1}
-.dock--call::after{content:"";position:absolute;top:0;left:-130%;width:50%;height:100%;
-  background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
-  transform:skewX(-20deg);animation:shine 3.2s ease-in-out infinite}
+.dock--call::after{content:"";position:absolute;top:0;left:-140%;width:65%;height:100%;
+  background:linear-gradient(100deg,transparent 0%,rgba(255,255,255,.2) 28%,rgba(255,255,255,.78) 50%,rgba(255,255,255,.2) 72%,transparent 100%);
+  transform:skewX(-18deg);animation:shine 9s ease-in-out infinite}
 
 @media(max-width:900px){
   .packs{grid-template-columns:1fr}
@@ -336,8 +333,6 @@ footer a{color:var(--muted)}
     <figure><blockquote>«Умер отец ночью. Я в шоке, не знала, за что хвататься. Позвонила — взяли всё на себя. Врач, документы, катафалк. Просто выдохнула.»</blockquote><figcaption>Дмитрий</figcaption></figure>
     <figure><blockquote>«Похороны мамы. Думала, разорюсь. Здесь чётко сказали, что входит в обязательное, а что нет. Без навязывания.»</blockquote><figcaption>Анна</figcaption></figure>
     <figure><blockquote>«Справки, бумажки — для меня тёмный лес. Менеджер сам собрал все документы и подал куда надо. Я только подписала.»</blockquote><figcaption>Татьяна</figcaption></figure>
-  </div>
-  <div class="rev" style="border-top:none">
     <figure><blockquote>«Живу в Москве, хоронили в области. Всё организовали дистанционно, отчёт по каждому этапу. Ни одной осечки.»</blockquote><figcaption>Игорь</figcaption></figure>
     <figure><blockquote>«Стеснялась спросить про дешёвый гроб. Здесь без осуждения подобрали бюджетный вариант, всё достойно.»</blockquote><figcaption>Мария</figcaption></figure>
   </div>
