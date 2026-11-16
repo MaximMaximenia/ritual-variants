@@ -92,9 +92,9 @@ p{margin:0 0 13px}
 .hero{position:relative;padding-block:clamp(44px,5.5vw,70px) clamp(40px,5vw,60px);
   border-bottom:2px solid var(--line2);overflow:hidden}
 .herobg{position:absolute;inset:0;z-index:0}
-.herobg img{width:100%;height:100%;object-fit:cover;object-position:72% 42%;filter:grayscale(.35) contrast(1.03)}
+.herobg img{width:100%;height:100%;object-fit:cover;object-position:72% 42%;filter:grayscale(.2) contrast(1.05)}
 .herobg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(92deg,#fff 0%,#fff 38%,rgba(255,255,255,.92) 54%,rgba(255,255,255,.45) 76%,rgba(255,255,255,.2) 100%)}
+  background:linear-gradient(92deg,#fff 0%,rgba(255,255,255,.97) 34%,rgba(255,255,255,.82) 50%,rgba(255,255,255,.3) 74%,rgba(255,255,255,.04) 100%)}
 .hero h1{margin-bottom:18px}
 .hero h1 em{font-style:normal;color:var(--acc)}
 .bigphone{display:inline-block;font-size:clamp(34px,7.4vw,74px);font-weight:800;letter-spacing:-.05em;
@@ -105,10 +105,15 @@ p{margin:0 0 13px}
 .hero .bigphone .dim{color:var(--ink)}
 .hero .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;align-items:center}
 .heroin{max-width:640px;position:relative;z-index:1}
-.point{display:flex;align-items:center;gap:5px;pointer-events:none;animation:nudge 1.9s ease-in-out infinite}
+.cta1{position:relative;display:inline-flex}
+.point{position:absolute;left:calc(100% + 10px);top:50%;transform:translateY(-50%);
+  display:flex;align-items:center;gap:5px;pointer-events:none;white-space:nowrap;
+  animation:blink 2.6s ease-in-out infinite}
 .point svg{flex:none}
-.point b{font-size:13.5px;font-weight:700;color:var(--acc);letter-spacing:-.01em;white-space:nowrap}
-@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
+.point b{font-size:13.5px;font-weight:700;color:var(--acc);letter-spacing:-.01em}
+@keyframes blink{0%,100%{opacity:0;transform:translateY(-50%) translateX(6px)}
+  18%,62%{opacity:1;transform:translateY(-50%) translateX(0)}
+  80%{opacity:0;transform:translateY(-50%) translateX(6px)}}
 .herolead{font-size:19px;color:var(--muted);max-width:52ch;margin:0}
 
 /* факты */
@@ -150,6 +155,16 @@ p{margin:0 0 13px}
 .rev figure:last-child{border-right:none}
 .rev blockquote{margin:0 0 12px;font-size:16px;line-height:1.55}
 .rev figcaption{font-size:13.5px;font-weight:700;color:var(--acc)}
+
+/* стена отзывов */
+.revwall{background:var(--acc);color:#fff;border-block:2px solid var(--acc)}
+.revwall .tag{color:rgba(255,255,255,.72)}
+.revwall h2{color:#fff}
+.revlead{color:rgba(255,255,255,.8);margin:0 0 28px}
+.revwall .rev{border-color:rgba(255,255,255,.32)}
+.revwall .rev figure{border-right-color:rgba(255,255,255,.22)}
+.revwall blockquote{color:#fff}
+.revwall figcaption{color:#F3C9C9}
 
 /* faq */
 .faq{max-width:76ch;border-top:2px solid var(--line2)}
@@ -193,11 +208,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between}
 footer b{display:block;color:var(--ink);font-weight:700;margin-bottom:3px}
 footer a{color:var(--muted)}
 
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:none;gap:0;
-  border-top:2px solid var(--line2);background:#fff}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;gap:0;
+  border-top:2px solid var(--line2);background:#fff;
+  transform:translateY(105%);transition:transform .3s ease;visibility:hidden}
+.dock.on{transform:translateY(0);visibility:visible}
 .dock a{flex:1;padding:15px 8px calc(15px + env(safe-area-inset-bottom,0px));text-align:center;
   font-weight:700;font-size:16px;text-decoration:none;color:var(--ink)}
-.dock--call{background:var(--acc);color:#fff;position:relative;overflow:hidden}
+.dock a.dock--call{background:var(--acc);color:#fff;position:relative;overflow:hidden}
 .dock--call span{position:relative;z-index:1}
 .dock--call::after{content:"";position:absolute;top:0;left:-130%;width:50%;height:100%;
   background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);
@@ -211,16 +228,16 @@ footer a{color:var(--muted)}
   .steps>div{border-bottom:1px solid var(--line)}
   .contact{grid-template-columns:1fr;gap:32px}
   .rev figure{border-right:none;border-bottom:1px solid var(--line)}
-  .dock{display:flex}
-  body{padding-bottom:72px}
+  body{padding-bottom:0}
+  body.docked{padding-bottom:72px}
 }
 @media(max-width:900px){
   .herobg img{object-position:78% 36%}
-  .herobg::after{background:linear-gradient(176deg,#fff 0%,rgba(255,255,255,.95) 46%,rgba(255,255,255,.72) 72%,rgba(255,255,255,.5) 100%)}
+  .herobg::after{background:linear-gradient(176deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.9) 44%,rgba(255,255,255,.6) 74%,rgba(255,255,255,.35) 100%)}
   .hero .row{margin-top:20px}
 }
 @media(max-width:620px){
-  .point{order:3;margin-top:-4px}
+  .point{display:none}
   .frow{grid-template-columns:1fr 1fr}
   .frow>div{border-bottom:1px solid var(--line)}
   .steps{grid-template-columns:1fr}
@@ -249,13 +266,14 @@ footer a{color:var(--muted)}
   <div class="heroin">
     <p class="tag">Ритуальная служба · Минск · круглосуточно</p>
     <h1>Ритуальные услуги в Минске.<br>Агент приедет <em>через 40 минут</em></h1>
-    <a class="bigphone" href="tel:+375333275986" data-call><span class="dim">+375 33</span> 327-59-86</a>
     <p class="herolead">Морг, документы, транспорт, кладбище и прощание берём на себя. Звоните в любое время суток — выезд агента бесплатный.</p>
     <div class="row">
-      <a class="btn btn--red" href="tel:+375333275986" data-call>Позвонить сейчас</a>
-      <span class="point" aria-hidden="true">
-        <svg viewBox="0 0 70 34" width="64" height="31"><path d="M66 10C52 6 34 10 22 22" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 6"/><path d="M30 24l-9-2 2-8" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <b>звоните сюда</b>
+      <span class="cta1">
+        <a class="btn btn--red" href="tel:+375333275986" data-call>Позвонить сейчас</a>
+        <span class="point" aria-hidden="true">
+          <svg viewBox="0 0 54 30" width="50" height="28"><path d="M50 8C38 4 22 8 12 18" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-dasharray="6 6"/><path d="M20 20l-8-2 2-8" fill="none" stroke="#8A1C1C" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <b>звоните сюда</b>
+        </span>
       </span>
       <a class="btn" href="#zayavka">Перезвоните мне</a>
     </div>
@@ -295,6 +313,21 @@ footer a{color:var(--muted)}
   <p class="small" style="margin-top:18px">Точную сумму агент называет до начала работ и вписывает в договор. После подписания она не меняется.</p>
 </div></section>
 
+<section class="revwall"><div class="wrap">
+  <p class="tag">Отзывы</p>
+  <h2>Люди, которые нам доверились</h2>
+  <p class="lead revlead">За каждым отзывом — семья, которой мы помогли в худший день её жизни.</p>
+  <div class="rev">
+    <figure><blockquote>«Умер отец ночью. Я в шоке, не знала, за что хвататься. Позвонила — взяли всё на себя. Врач, документы, катафалк. Просто выдохнула.»</blockquote><figcaption>Дмитрий</figcaption></figure>
+    <figure><blockquote>«Похороны мамы. Думала, разорюсь. Здесь чётко сказали, что входит в обязательное, а что нет. Без навязывания.»</blockquote><figcaption>Анна</figcaption></figure>
+    <figure><blockquote>«Справки, бумажки — для меня тёмный лес. Менеджер сам собрал все документы и подал куда надо. Я только подписала.»</blockquote><figcaption>Татьяна</figcaption></figure>
+  </div>
+  <div class="rev" style="border-top:none">
+    <figure><blockquote>«Живу в Москве, хоронили в области. Всё организовали дистанционно, отчёт по каждому этапу. Ни одной осечки.»</blockquote><figcaption>Игорь</figcaption></figure>
+    <figure><blockquote>«Стеснялась спросить про дешёвый гроб. Здесь без осуждения подобрали бюджетный вариант, всё достойно.»</blockquote><figcaption>Мария</figcaption></figure>
+  </div>
+</div></section>
+
 <section style="padding-top:0"><div class="wrap">
   <p class="tag">Первые шаги</p>
   <h2>Что делать прямо сейчас</h2>
@@ -321,20 +354,7 @@ footer a{color:var(--muted)}
   </div>
 </div></section>
 
-<section><div class="wrap">
-  <p class="tag">Отзывы</p>
-  <h2>Что говорят те, кому мы помогли</h2>
-  <div class="rule" style="margin:18px 0 30px"></div>
-  <div class="rev">
-    <figure><blockquote>«Умер отец ночью. Я в шоке, не знала, за что хвататься. Позвонила — взяли всё на себя. Врач, документы, катафалк. Просто выдохнула.»</blockquote><figcaption>Дмитрий</figcaption></figure>
-    <figure><blockquote>«Похороны мамы. Думала, разорюсь. Здесь чётко сказали, что входит в обязательное, а что нет. Без навязывания.»</blockquote><figcaption>Анна</figcaption></figure>
-    <figure><blockquote>«Справки, бумажки — для меня тёмный лес. Менеджер сам собрал все документы и подал куда надо. Я только подписала.»</blockquote><figcaption>Татьяна</figcaption></figure>
-  </div>
-  <div class="rev" style="border-top:none">
-    <figure><blockquote>«Живу в Москве, хоронили в области. Всё организовали дистанционно, отчёт по каждому этапу. Ни одной осечки.»</blockquote><figcaption>Игорь</figcaption></figure>
-    <figure><blockquote>«Стеснялась спросить про дешёвый гроб. Здесь без осуждения подобрали бюджетный вариант, всё достойно.»</blockquote><figcaption>Мария</figcaption></figure>
-  </div>
-</div></section>
+
 
 <section id="zayavka" style="background:var(--paper);border-block:2px solid var(--line2)"><div class="wrap contact">
   <div>
@@ -411,6 +431,16 @@ footer a{color:var(--muted)}
     var a=e.target.closest&&e.target.closest('a[data-call],a[data-msgr]');
     if(a) conv(CALL);
   });
+  // нижняя панель появляется, когда первый экран уходит
+  var dock=document.querySelector('.dock'), hero=document.querySelector('.hero');
+  if(dock&&hero&&'IntersectionObserver' in window){
+    new IntersectionObserver(function(e){
+      var show=!e[0].isIntersecting;
+      dock.classList.toggle('on',show);
+      document.body.classList.toggle('docked',show);
+    },{threshold:0}).observe(hero);
+  }
+
   var form=document.getElementById('lead');
   form.addEventListener('submit',function(e){
     e.preventDefault();
