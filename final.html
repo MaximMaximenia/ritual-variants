@@ -154,6 +154,19 @@ p{margin:0 0 13px}
 .packs ul{margin:0;padding-left:18px}
 .packs li{font-size:15px;color:var(--muted);margin-bottom:6px}
 
+/* фото-полоса */
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
+.strip figure{margin:0}
+.strip img{width:100%;aspect-ratio:4/3;object-fit:cover;border:2px solid var(--line2);
+  filter:grayscale(.15) contrast(1.03)}
+.wide{margin:22px 0 0}
+.wide img{width:100%;aspect-ratio:21/7;object-fit:cover;object-position:50% 58%;
+  border:2px solid var(--line2);filter:grayscale(.15) contrast(1.03)}
+.finalbg{position:absolute;inset:0;z-index:0;opacity:.17}
+.finalbg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+.final{position:relative;overflow:hidden}
+.final .wrap{position:relative;z-index:1}
+
 /* шаги */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--line2)}
 .steps>div{padding:24px 24px 26px;border-right:1px solid var(--line)}
@@ -329,11 +342,12 @@ footer a{color:var(--muted)}
 <section id="ceny"><div class="wrap">
   <p class="tag">Сколько стоит</p>
   <h2>Три пакета</h2>
-  <p class="lead" style="margin-bottom:26px">Отсчёт идёт от пособия на погребение 3&nbsp;099,30 BYN. В каждой сумме уже учтено всё, включая копку могилы, морг и транспорт — по ходу ничего не всплывает.</p>
+  <p class="lead" style="margin-bottom:26px">Государство выплачивает пособие на погребение 3&nbsp;099,30 BYN. Оно покрывает основную часть расходов — ниже показано, сколько придётся доплатить сверху. В суммах уже учтено всё, включая копку могилы, морг и транспорт.</p>
   <div class="packs">
     <article>
       <h3>Поддержка</h3>
-      <b class="price">0 <span>доплаты сверх пособия</span></b>
+      <div class="pb"><i>Пособие</i><b>3 099,30 BYN</b></div>
+      <b class="price">доплаты нет</b>
       <p class="pnote">Всё необходимое для достойных похорон. Укладывается в пособие на погребение.</p>
       <ul>
         <li>Гроб деревянный, обитый тканью</li>
@@ -348,7 +362,8 @@ footer a{color:var(--muted)}
     <article class="best">
       <span class="lab">Берут чаще всего</span>
       <h3>Стандарт</h3>
-      <b class="price">от 4 000 <span>BYN</span></b>
+      <div class="pb"><i>Пособие</i><b>3 099,30 BYN</b></div>
+      <b class="price">доплата от 900 <span>BYN</span></b>
       <p class="pnote">Всё из «Поддержки», плюс зал прощания и цветы.</p>
       <ul>
         <li>Гроб лакированный</li>
@@ -361,7 +376,8 @@ footer a{color:var(--muted)}
     </article>
     <article>
       <h3>VIP</h3>
-      <b class="price">от 5 000 <span>BYN</span></b>
+      <div class="pb"><i>Пособие</i><b>3 099,30 BYN</b></div>
+      <b class="price">доплата от 1 900 <span>BYN</span></b>
       <p class="pnote">Всё из «Стандарта», плюс церемония и транспорт для близких.</p>
       <ul>
         <li>Лакированный гроб VIP</li>
@@ -375,7 +391,7 @@ footer a{color:var(--muted)}
       </ul>
     </article>
   </div>
-  <p class="small" style="margin-top:18px">Точную сумму агент называет до начала работ и вписывает в договор. После подписания она не меняется.</p>
+  <p class="small" style="margin-top:18px">Пособие оформляем мы — от вас нужны только документы. Точную доплату агент называет до начала работ и вписывает в договор. После подписания она не меняется.</p>
 <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
 
@@ -398,6 +414,7 @@ footer a{color:var(--muted)}
   <p class="tag">Первые шаги</p>
   <h2>Что делать прямо сейчас</h2>
   <p class="lead" style="margin-bottom:0">Позвонить можно на любом шаге — подскажем бесплатно, даже если потом обратитесь не к нам.</p>
+  <figure class="wide"><img src="img/hands.jpg" width="1000" height="667" alt="" loading="lazy"></figure>
   <div class="steps" style="margin-top:26px">
     <div><b>01</b><h3>Вызовите врача</h3><p>Смерть должен констатировать медик. Дома — скорая и участковый.</p></div>
     <div><b>02</b><h3>Заберите свидетельство</h3><p>Врачебное свидетельство о смерти выдают в морге или поликлинике.</p></div>
@@ -418,6 +435,11 @@ footer a{color:var(--muted)}
     <article><h3>Транспорт</h3><p>Катафалк и автобус для близких на 20–45 мест.</p></article>
     <article><h3>Прощание</h3><p>Зал, отпевание любой конфессии или светская церемония.</p></article>
     <article><h3>Всё для похорон</h3><p>Гроб, венки, кресты, цветы, одежда. Привозим сами.</p></article>
+  </div>
+  <div class="strip">
+    <figure><img src="img/hall.jpg" width="1000" height="667" alt="Зал прощания" loading="lazy"></figure>
+    <figure><img src="img/car.jpg" width="1000" height="667" alt="Катафалк" loading="lazy"></figure>
+    <figure><img src="img/documents.jpg" width="1000" height="667" alt="Оформление документов" loading="lazy"></figure>
   </div>
   <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
@@ -461,7 +483,7 @@ footer a{color:var(--muted)}
   </div>
 </div></section>
 
-<section class="final"><div class="wrap">
+<section class="final"><div class="finalbg"><img src="img/flowers.jpg" alt="" loading="lazy"></div><div class="wrap">
   <h2>Звоните в любое время</h2>
   <p class="lead">Агент выедет в любой район Минска. Дальше всё сделаем мы.</p>
   <a class="bigphone" href="tel:+375333275986" data-call><span class="dim">+375 33</span> 327-59-86</a>
