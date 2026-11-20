@@ -158,6 +158,25 @@ p{margin:0 0 13px}
 .packs ul{margin:0;padding-left:18px}
 .packs li{font-size:15px;color:var(--muted);margin-bottom:6px}
 
+.final{position:relative;overflow:hidden}
+.final .wrap{position:relative;z-index:1}
+.finalbg{position:absolute;inset:0;z-index:0;opacity:.16}
+.finalbg img{width:100%;height:100%;object-fit:cover;filter:grayscale(1)}
+/* фото рядом с текстом */
+.cols{display:grid;gap:34px;align-items:stretch}
+.cols--img-right{grid-template-columns:1fr 320px}
+.cols--img-left{grid-template-columns:320px 1fr}
+.cols .ph{margin:0;position:relative;min-height:100%}
+.cols .ph img{width:100%;height:100%;min-height:280px;object-fit:cover;display:block;
+  border:2px solid var(--line2);filter:grayscale(.2) contrast(1.03)}
+.cols--img-right .srv{grid-template-columns:repeat(2,1fr)}
+@media(max-width:860px){
+  .cols--img-right,.cols--img-left{grid-template-columns:1fr}
+  .cols .ph{order:-1}
+  .cols .ph img{min-height:0;height:190px}
+  .cols--img-right .srv{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+}
+
 /* шаги */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:2px solid var(--line2)}
 .steps>div{padding:24px 24px 26px;border-right:1px solid var(--line)}
@@ -406,12 +425,14 @@ footer a{color:var(--muted)}
   <p class="tag">Первые шаги</p>
   <h2>Что делать прямо сейчас</h2>
   <p class="lead" style="margin-bottom:0">Позвонить можно на любом шаге — подскажем бесплатно, даже если потом обратитесь не к нам.</p>
-  <div class="steps" style="margin-top:26px">
+  <div class="cols cols--img-left" style="margin-top:26px">
+  <figure class="ph"><img src="img/hands.jpg" width="1200" height="800" alt="" loading="lazy"></figure>
+  <div class="steps" style="margin-top:0">
     <div><b>01</b><h3>Вызовите врача</h3><p>Смерть должен констатировать медик. Дома — скорая и участковый.</p></div>
     <div><b>02</b><h3>Заберите свидетельство</h3><p>Врачебное свидетельство о смерти выдают в морге или поликлинике.</p></div>
     <div><b>03</b><h3>Два паспорта</h3><p>Умершего и ваш. Этого достаточно, чтобы начать.</p></div>
     <div><b>04</b><h3>Позвоните нам</h3><p>Агент приедет домой или в морг и дальше всё сделает сам.</p></div>
-  </div>
+  </div></div>
   <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
 
@@ -419,6 +440,7 @@ footer a{color:var(--muted)}
   <p class="tag">Услуги</p>
   <h2>Что берём на себя</h2>
   <div class="rule" style="margin:18px 0 30px"></div>
+  <div class="cols cols--img-right">
   <div class="srv">
     <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c1.6 1.9 2.4 3.3 2.4 4.5a2.4 2.4 0 0 1-4.8 0C9.6 6.3 10.4 4.9 12 3Z"/><path d="M8.5 12h7v9h-7z"/><path d="M12 12v-2"/></svg><h3>Морг и подготовка</h3><p>Перевозка, хранение, омовение, одевание. С моргом договариваемся сами.</p></article>
     <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/><path d="M9 12h6M9 16h6"/></svg><h3>Документы</h3><p>Свидетельство о смерти, ЗАГС, справка для пособия. Вам никуда ехать не нужно.</p></article>
@@ -426,6 +448,8 @@ footer a{color:var(--muted)}
     <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 16V8h11l4 4v4z"/><circle cx="7.5" cy="18" r="1.8"/><circle cx="16.5" cy="18" r="1.8"/><path d="M14 8v4h4"/></svg><h3>Транспорт</h3><p>Катафалк и автобус для близких на 20–45 мест.</p></article>
     <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.4-7-9a4 4 0 0 1 7-2.6A4 4 0 0 1 19 12c0 4.6-7 9-7 9Z"/></svg><h3>Прощание</h3><p>Зал, отпевание любой конфессии или светская церемония.</p></article>
     <article><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="13" r="6"/><path d="M12 7V3M10 4.5 12 3l2 1.5"/></svg><h3>Всё для похорон</h3><p>Гроб, венки, кресты, цветы, одежда. Привозим сами.</p></article>
+  </div>
+  <figure class="ph"><img src="img/hall.jpg" width="1000" height="667" alt="Зал прощания" loading="lazy"></figure>
   </div>
   <div class="down" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v15M6 13l6 6 6-6"/></svg></div>
 </div></section>
@@ -469,7 +493,7 @@ footer a{color:var(--muted)}
   </div>
 </div></section>
 
-<section class="final"><div class="wrap">
+<section class="final"><div class="finalbg"><img src="img/flowers.jpg" alt="" loading="lazy"></div><div class="wrap">
   <h2>Звоните в любое время</h2>
   <p class="lead">Агент выедет в любой район Минска. Дальше всё сделаем мы.</p>
   <a class="bigphone" href="tel:+375333275986" data-call><span class="dim">+375 33</span> 327-59-86</a>
